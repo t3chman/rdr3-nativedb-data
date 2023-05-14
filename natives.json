@@ -72196,8 +72196,8 @@
 			"build": "1207"
 		},
 		"0xA622E66EEE92A08D": {
-			"name": "_GET_NUM_COMPONENT_CATEGORIES_IN_PED",
-			"comment": "Works similar to 0x90403E8107B60E81 (_GET_NUM_COMPONENTS_IN_PED) but is used to get category hashes instead",
+			"name": "_GET_NUM_TAGS_IN_PED",
+			"comment": "Works similar to 0x90403E8107B60E81 (_GET_NUM_COMPONENTS_IN_PED) but is used to get MetaPed tag hashes instead",
 			"params": [
 				{
 					"type": "Ped",
@@ -72208,8 +72208,8 @@
 			"build": "1207"
 		},
 		"0xCCB97B51893C662F": {
-			"name": "_GET_PED_COMPONENT_CATEGORY_BY_INDEX",
-			"comment": "Returns category hash that each ped component has. Hash examples: MASKS, HATS, HEADS, HORSE_MANES",
+			"name": "_GET_TAGS_IN_PED_BY_INDEX",
+			"comment": "Returns MetaPed tag hash in ped. Hash examples: MASKS, HATS, HEADS, HORSE_MANES, P_C_HORSE_01\n\nUse _GET_NUM_TAGS_IN_PED (0xA622E66EEE92A08D) to get the number of available indexes",
 			"params": [
 				{
 					"type": "Ped",
@@ -72236,23 +72236,23 @@
 			"build": "1207"
 		},
 		"0x9B90842304C938A7": {
-			"name": "_0x9B90842304C938A7",
-			"comment": "",
+			"name": "_GET_CATEGORY_OF_COMPONENT_AT_INDEX",
+			"comment": "Returns the category hash of a component at the specified index. Use _GET_NUM_COMPONENTS_IN_PED (0x90403E8107B60E81) to get available indexes.\n\np2 is always 0 in scripts",
 			"params": [
 				{
-					"type": "Any",
-					"name": "p0"
+					"type": "Ped",
+					"name": "ped"
 				},
 				{
-					"type": "Any",
-					"name": "p1"
+					"type": "int",
+					"name": "componentIndex"
 				},
 				{
-					"type": "Any",
+					"type": "int",
 					"name": "p2"
 				}
 			],
-			"return_type": "Any",
+			"return_type": "Hash",
 			"build": "1207"
 		},
 		"0xCC8CA3E88256E58F": {
@@ -103051,7 +103051,7 @@
 		},
 		"0x5343532C01A07234": {
 			"name": "WAYPOINT_RECORDING_GET_NUM_POINTS",
-			"comment": "",
+			"comment": "In scripts, only less than 256 points are valid for further use of the waypoint recording.",
 			"params": [
 				{
 					"type": "const char*",
